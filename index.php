@@ -58,7 +58,7 @@
 <div class="container mt-5">
   <table class="table table-hover table-dark">
     <thead>
-      <tr>
+      <tr class="text-secondary">
         <th scope="col">Nome</th>
         <th scope="col">Descrizione</th>
         <th scope="col">Parcheggio</th>
@@ -68,14 +68,21 @@
     </thead>
     <tbody>
       <?php
-      foreach ($hotels as $hotels) {
+      foreach ($hotels as $hotel) {
       ?>
         <tr>
-          <td><?php echo $hotels["name"] ?></td>
-          <td><?php echo $hotels["description"] ?></td>
-          <td><?php echo $hotels["parking"] ?></td>
-          <td><?php echo $hotels["vote"] ?></td>
-          <td><?php echo $hotels["distance_to_center"] ?> km</td>
+          <td><?php echo $hotel["name"] ?></td>
+          <td><?php echo $hotel["description"] ?></td>
+          <td><?php
+          // echo $hotel["parking"] 
+          if($hotel['parking']){
+            echo "<i class='fa-solid fa-check text-success'></i>";
+          } else {
+          echo "<i class='fa-solid fa-xmark text-danger'></i>";
+          }
+          ?></td>
+          <td><?php echo $hotel["vote"] ?></td>
+          <td><?php echo $hotel["distance_to_center"] ?> km</td>
         </tr>
       <?php
       }
