@@ -72,17 +72,25 @@
       ?>
         <tr>
           <td><?php echo $hotel["name"] ?></td>
+
           <td><?php echo $hotel["description"] ?></td>
-          <td><?php
-          // echo $hotel["parking"] 
-          if($hotel['parking']){
-            echo "<i class='fa-solid fa-check text-success'></i>";
-          } else {
-          echo "<i class='fa-solid fa-xmark text-danger'></i>";
-          }
+
+          <td><?php 
+            if($hotel['parking']){
+              echo "<i class='fa-solid fa-check text-success'></i>";
+            } else {
+            echo "<i class='fa-solid fa-xmark text-danger'></i>";
+            }
           ?></td>
-          <td><?php echo $hotel["vote"] ?></td>
+
+          <td><?php 
+            for ($i=0; $i < $hotel["vote"]; $i++){
+              echo "<i class='fa-solid fa-star'></i>";
+            }
+          ?></td>
+
           <td><?php echo $hotel["distance_to_center"] ?> km</td>
+
         </tr>
       <?php
       }
